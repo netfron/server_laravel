@@ -163,6 +163,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+    	/* Data Service Layer */	
+        App\Repositories\Post\PostRepoServiceProvide::class,
+                
         /*
          * Package Service Providers...
          */
