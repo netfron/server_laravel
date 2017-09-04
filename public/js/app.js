@@ -896,6 +896,7 @@ window.Vue = __webpack_require__(36);
 
 Vue.component('example', __webpack_require__(37));
 Vue.component('profile', __webpack_require__(40));
+Vue.component('dlog', __webpack_require__(53));
 
 var app = new Vue({
   el: '#app'
@@ -42082,6 +42083,113 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(8)(
+  /* script */
+  __webpack_require__(54),
+  /* template */
+  __webpack_require__(55),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "D:\\git\\server_laravel\\resources\\assets\\js\\components\\Dlog.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Dlog.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5a7d0a1e", Component.options)
+  } else {
+    hotAPI.reload("data-v-5a7d0a1e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    /*
+     * The component's data.
+     */
+    data: function data() {
+        return {
+            postData: null
+        };
+    },
+    mounted: function mounted() {
+        this.prepareComponent();
+    },
+
+    methods: {
+        /**
+         * Prepare the component.
+         */
+        prepareComponent: function prepareComponent() {
+            this.getPost();
+        },
+        getPost: function getPost() {
+            var _this = this;
+
+            axios.get('/api/post').then(function (response) {
+                _this.postData = response.data;
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_vm._v(_vm._s(_vm.postData))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-5a7d0a1e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
