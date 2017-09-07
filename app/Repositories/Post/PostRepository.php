@@ -29,7 +29,7 @@ class PostRepository implements PostInterface {
     	if($content) $data = $data->where('content','like','%'.$content.'%');
 
     	$data = $data->select(['id', 'title', 'content']);
-		$data = $data->paginate(20);
+		$data = $data->paginate(5);
 		
     	return $data;
 	}
