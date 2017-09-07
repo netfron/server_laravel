@@ -1,6 +1,8 @@
 # server_laravel
 ```
 Dlog Website Repository
+http://www.dlog.io
+(docker 서버 준비중입니다.)
 ```
 
 # Requirement
@@ -11,8 +13,9 @@ composer
 database : homestead, account : homestead / secrect
 ```
 
-# server_laravel
+# Installation
 ```
+git clone https://github.com/netfron/server_laravel.git
 cd server laravel
 composer install
 php artisan serve
