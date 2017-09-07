@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
 Vue.component('dlog', require('./components/Dlog.vue'));
+Vue.component('dlog-list', require('./components/Dlog_list.vue'));
 
 const app = new Vue({
     el: '#app'
