@@ -1,10 +1,16 @@
 <template>
     <div>
-        <div></div>
-        <dlog-list></dlog-list>
+       <div v-for="item in listData" v-bind:key="item.id">
+            <div class="panel panel-default" v-for="itemData in item" v-bind:key="itemData.id">
+                <div class="panel-heading">{{itemData.title}}</div>
+                <div class="panel-body">
+                    id : {{itemData.content}}
+                </div>                
+            </div>            
+        </div> 
         <div class="col-md-6 col-md-offset-4">
             <button type="button" class="btn btn-primary" v-on:click.prevent="getPostNext">More</button>
-        </div>
+        </div>       
     </div>
 </template>
 

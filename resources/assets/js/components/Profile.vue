@@ -1,5 +1,8 @@
 <template>
-    <div>{{ userData }}</div>
+<div>
+    <div>Name : {{ userData.name }}</div>
+    <div>Email : {{ userData.email }}</div>
+</div>    
 </template>
 
 <script>
@@ -10,7 +13,7 @@
          */
         data() {
             return {
-                userData: null
+                userData: {}
             };
         },        
         mounted() {
