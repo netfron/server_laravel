@@ -16,7 +16,7 @@ database : homestead, account : homestead / secrect
 # Installation
 ```
 git clone https://github.com/netfron/server_laravel.git
-cd server laravel
+cd server_laravel
 composer install
 php artisan migrate --env=dev
 php artisan serve --env=dev
