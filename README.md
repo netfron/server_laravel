@@ -1,10 +1,8 @@
 # server_laravel
-```
-Dlog Website Repository
-http://www.dlog.io
-(Docker EC2 Server)
 
-```
+Dlog Website Repository
+- [http://www.dlog.io](http://www.dlog.io).
+(Docker EC2 Server)
 
 # Requirement
 ```
