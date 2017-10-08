@@ -10,6 +10,12 @@
                 Welcome to Dlog Website
                 </div>
             </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Dlog</div>
+                <div class="panel-body">
+                    <dlog></dlog>
+                </div>                
+            </div>                   
         </div>
     </div>
 </div>
