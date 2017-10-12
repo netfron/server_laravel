@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/post', 'PostController', ['except' => ['create', 'edit']]);
+Route::resource('/news', 'NewsController', ['except' => ['create', 'edit']]);
 

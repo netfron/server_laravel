@@ -78,6 +78,18 @@ return [
             'prefix' => '',
         ],
 
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => 'localhost',
+            'port'     => '27017',
+            'database' => 'homestead',
+            'username' => '',
+            'password' => '',
+            'options'  => [
+                'database' => 'homestead' // sets the authentication database required by mongo 3
+            ]
+        ],
+
     ],
 
     /*
