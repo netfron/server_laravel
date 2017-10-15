@@ -2,9 +2,9 @@
     <div>
        <div v-for="item in listData" v-bind:key="item.id">
             <div class="panel panel-default" v-for="itemData in item" v-bind:key="itemData.id">
-                <div class="panel-heading">{{itemData.title}}</div>
+                <div class="panel-heading">{{itemData.news_title}}</div>
                 <div class="panel-body">
-                    {{itemData.content}}
+                    <a v-bind:href="itemData.news_link_url" target="_blank">{{itemData.news_link_url}}</a>
                 </div>                
             </div>            
         </div> 
@@ -40,7 +40,7 @@
                 this.getPost();
             },
             getPost() {
-                var url = '/api/post?page=' + this.page;
+                var url = '/api/news?page=' + this.page;
                 axios.get(url)
                         .then(response => {
                             this.postData = response.data;
