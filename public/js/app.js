@@ -897,7 +897,7 @@ window.Vue = __webpack_require__(36);
 Vue.component('example', __webpack_require__(37));
 Vue.component('profile', __webpack_require__(40));
 Vue.component('dlog', __webpack_require__(43));
-Vue.component('dlog-list', __webpack_require__(46));
+Vue.component('news', __webpack_require__(46));
 
 var app = new Vue({
   el: '#app'
@@ -42204,7 +42204,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         staticClass: "panel-heading"
       }, [_vm._v(_vm._s(itemData.title))]), _vm._v(" "), _c('div', {
         staticClass: "panel-body"
-      }, [_vm._v("\n                id : " + _vm._s(itemData.content) + "\n            ")])])
+      }, [_vm._v("\n                " + _vm._s(itemData.content) + "\n            ")])])
     }))
   }), _vm._v(" "), _c('div', {
     staticClass: "col-md-6 col-md-offset-4"
@@ -42246,9 +42246,9 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "D:\\git\\server_laravel\\resources\\assets\\js\\components\\Dlog_list.vue"
+Component.options.__file = "D:\\git\\server_laravel\\resources\\assets\\js\\components\\News.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Dlog_list.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] News.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -42257,9 +42257,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7e3a9cdc", Component.options)
+    hotAPI.createRecord("data-v-7d917be4", Component.options)
   } else {
-    hotAPI.reload("data-v-7e3a9cdc", Component.options)
+    hotAPI.reload("data-v-7d917be4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -42284,15 +42284,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
+    /*
+     * The component's data.
+     */
     data: function data() {
         return {
-            listData: this.$parent.listData
+            postData: null,
+            listData: [],
+            page: 1
         };
     },
-    mounted: function mounted() {}
+    mounted: function mounted() {
+        this.prepareComponent();
+    },
+
+    methods: {
+        /**
+         * Prepare the component.
+         */
+        prepareComponent: function prepareComponent() {
+            this.getPost();
+        },
+        getPost: function getPost() {
+            var _this = this;
+
+            var url = '/api/news?page=' + this.page;
+            axios.get(url).then(function (response) {
+                _this.postData = response.data;
+                _this.listData.push(response.data.data);
+            });
+        },
+        getPostNext: function getPostNext() {
+            if (this.postData.last_page > this.page) {
+                this.page++;
+                this.getPost();
+            }
+        }
+    }
+
 });
 
 /***/ }),
@@ -42300,21 +42340,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', _vm._l((_vm.listData), function(item) {
+  return _c('div', [_vm._l((_vm.listData), function(item) {
     return _c('div', {
       key: item.id
     }, _vm._l((item), function(itemData) {
       return _c('div', {
-        key: itemData.id
-      }, [_vm._v("\n            id : " + _vm._s(itemData) + "\n        ")])
+        key: itemData.id,
+        staticClass: "panel panel-default"
+      }, [_c('div', {
+        staticClass: "panel-heading"
+      }, [_vm._v(_vm._s(itemData.news_title))]), _vm._v(" "), _c('div', {
+        staticClass: "panel-body"
+      }, [_c('a', {
+        attrs: {
+          "href": itemData.news_link_url,
+          "target": "_blank"
+        }
+      }, [_vm._v(_vm._s(itemData.news_link_url))])])])
     }))
-  }))
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-md-6 col-md-offset-4"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.getPostNext($event)
+      }
+    }
+  }, [_vm._v("More")])])], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7e3a9cdc", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-7d917be4", module.exports)
   }
 }
 

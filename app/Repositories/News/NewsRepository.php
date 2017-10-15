@@ -22,8 +22,8 @@ class NewsRepository implements NewsInterface {
     	$title = $request->title;
     	$content = $request->content;
 
-		$limit = 10;
-		$projections = ['id', 'name','message'];
+		$limit = 5;
+		$projections = ['media_company','news_topic','news_link_url','news_date','news_title','news_content','continent'];
 		$data = DB::connection('mongodb')->collection('news')->paginate($limit, $projections);
 
 		return $data;
@@ -32,43 +32,44 @@ class NewsRepository implements NewsInterface {
 	
 	public function show($id)
 	{
-
+		/*
     	$data = News::where('id','=',$id);
     	$data = $data->get()->toArray();
     	if($data){
     		$data = $data[0];
     	} 
 
-    	return $data;
+		return $data;
+		*/
     	
 	}
 	
 	public function store($request)
 	{
-
+		/*
 		News::create($request->all());
 		return ['result'=>0,'result_text'=>'success','result_data'=>['id'=>$id]];
-
+		*/
 	}
 	
 	public function update($request, $id)
 	{
-
+		/*
 		$requestData = [
 				"title"=>$request->title,
 				"content"=>$request->content,
 		];
 		News::where('id', $id)->update($requestData);
 		return ['result'=>0,'result_text'=>'success'];
-
+		*/
 	}
 	
 	public function destroy($id)
 	{		
-
+		/*
 		News::where('id', $id)->delete();
 		return ['result'=>0,'result_text'=>'success'];
-
+		*/
 	}
 
 }

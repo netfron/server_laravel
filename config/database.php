@@ -80,13 +80,13 @@ return [
 
         'mongodb' => [
             'driver'   => 'mongodb',
-            'host'     => 'localhost',
-            'port'     => '27017',
-            'database' => 'homestead',
-            'username' => '',
-            'password' => '',
+            'host'     => env('MONGODB_HOST', 'localhost'),
+            'port'     => env('MONGODB_PORT', '27017'),
+            'database' => env('MONGODB_DATABASE', 'forge'),
+            'username' => env('MONGODB_USERNAME', 'forge'),
+            'password' => env('MONGODB_PASSWORD', ''),
             'options'  => [
-                'database' => 'homestead' // sets the authentication database required by mongo 3
+                'database' => env('MONGODB_DATABASE', 'forge') // sets the authentication database required by mongo 3
             ]
         ],
 

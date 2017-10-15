@@ -11,11 +11,12 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">Dlog</div>
+                <div class="panel-heading">News</div>
                 <div class="panel-body">
-                    <dlog></dlog>
+                    <news></news>
                 </div>                
-            </div>                   
+            </div>               
+                   
         </div>
     </div>
 </div>
