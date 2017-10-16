@@ -7,6 +7,7 @@ Dlog Website Repository
 # Requirement
 ```
 php 5.6 +
+php extension - mongodb
 mysql 5.6 +
 composer
 database : homestead, account : homestead / secrect
